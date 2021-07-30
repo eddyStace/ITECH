@@ -8,7 +8,14 @@
 {% block body_block %}
     <h1>Rango says...</h1>
     <div>
-        hey there partner! <br />
+        <!-- Check if user is authenticated -->
+        {% if user.is_authenticated %}
+            <!-- If authenticated show them their username -->
+            howdy {{ user.username }}!
+        {% else %}
+            hey there partner!
+        {% endif %}
+        
         <!-- {{...}} variables to be replaced on page -->
         <strong>{{ boldmessage }}</strong><br />
     </div>
